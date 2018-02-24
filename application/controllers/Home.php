@@ -21,10 +21,10 @@ class Home extends CI_Controller {
      */
     public function index()
     {
-        //if($_SESSION['logado'] != TRUE)
-        //{
-         //   redirect('login');
-        //}
+        if($_SESSION['logado'] != TRUE)
+        {
+            redirect('login');
+        }
 
         $data['title'] = 'Home';
         $data['err_form'] = '';

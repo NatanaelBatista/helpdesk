@@ -64,7 +64,7 @@ class Usuario_model extends CI_Model {
 	}
 
 	/**
-	 * set_num_usuario_all
+	 * get_num_usuario_all
 	 *
 	 * @access public
 	 * @return int

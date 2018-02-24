@@ -84,6 +84,18 @@
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#relatorio" data-parent="#exampleAccordion">
+            <span class="nav-link-text"><i class="fa">&#xf201;</i> Relatórios</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="relatorio">
+            <li>
+              <a href="<?php echo base_url(); ?>visita">
+                <span class="nav-link-text"> Visitas a Filiais</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#configuracao" data-parent="#exampleAccordion">
             <span class="nav-link-text"><i class="fa fa-cog"></i> Configurações</span>
           </a>

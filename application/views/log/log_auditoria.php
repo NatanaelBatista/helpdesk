@@ -39,7 +39,7 @@
 <hr />
 <div class="col-sm-12 col-md-4" style="margin: auto;">
   <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
-    <?php //echo $pagination; ?>
+    <?php echo $pagination; ?>
   </div>
 </div>
 <br />

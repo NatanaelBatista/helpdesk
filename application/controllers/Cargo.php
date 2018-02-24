@@ -175,10 +175,15 @@ class Cargo extends CI_Controller {
         $this->load->view('templates/footer.php', $data);
     }
 
-    /**
+     /**
      * check_exists
      *
+     * Método callbeck que verifica a existência de um valor indicado
+     *
      * @access public
+     * @param $param_1 string
+     * @param int $id
+     * @return boolean
      */
     public function check_exists($param_1, $id)
     {

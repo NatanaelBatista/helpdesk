@@ -224,29 +224,4 @@ class Pessoa extends CI_Controller {
         $this->load->view('pessoa/pessoa_editar.php', $data);
         $this->load->view('templates/footer.php', $data);
     }
-
-    /*
-    public function check_exists($param_1, $id)
-    {
-        if($_SESSION['logado'] != TRUE)
-        {
-            redirect('login');
-        }
-        elseif($_SESSION['usuario_acesso'] != 2)
-        {
-            redirect('home');
-        }
-
-        if(!$this->pessoa_model->get_pessoa_nome_exists($param_1, $id) == 0)
-        {
-            $this->form_validation->set_message('check_exists', 'Já existe um(a) {field} com esse valor');
-            
-            return FALSE;
-        }
-        else
-        {
-            return TRUE;
-        }
-    }
-    */
 }

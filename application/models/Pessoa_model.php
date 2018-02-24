@@ -42,6 +42,15 @@ class Pessoa_model extends CI_Model {
 		}
 	}
 
+	/**
+	 * get_usuario_all
+	 *
+	 * @access public
+	 * @param string $order
+	 * @param int $limit
+	 * @param int $offset
+	 * @return object
+	 */
 	public function get_pessoa_all($order, $limit, $offset)
 	{
 		$this->db->join('cargo', 'pessoa_cargo = cargo_id');
@@ -56,6 +65,12 @@ class Pessoa_model extends CI_Model {
 		return $query->result();
 	}
 
+	/**
+	 * set_num_pessoa_all
+	 *
+	 * @access public
+	 * @return int
+	 */
 	public function get_num_pessoa_all()
 	{	
 		$query = $this->db->get('pessoa');

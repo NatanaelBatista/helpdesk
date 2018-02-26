@@ -83,7 +83,7 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+        <li class="nav-item relatorio" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#relatorio" data-parent="#exampleAccordion">
             <span class="nav-link-text"><i class="fa">&#xf201;</i> Relatórios</span>
           </a>

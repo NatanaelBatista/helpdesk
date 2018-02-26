@@ -142,6 +142,10 @@ class Incidente extends CI_Controller {
         {
             redirect('login');
         }
+        elseif(!($_SESSION['usuario_acesso'] == 2 || $_SESSION['usuario_acesso'] == 3))
+        {
+            redirect('incidente');
+        }
 
         $data['title'] = 'incidente';
         $data['err_form'] = '';

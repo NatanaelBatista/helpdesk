@@ -29,7 +29,7 @@ class Visita extends CI_Controller {
         {
             redirect('login');
         }
-        elseif($_SESSION['usuario_acesso'] != 2)
+        elseif(!($_SESSION['usuario_acesso'] == 2 || $_SESSION['usuario_acesso'] == 3))
         {
             redirect('home');
         }
@@ -93,7 +93,7 @@ class Visita extends CI_Controller {
         {
             redirect('login');
         }
-        elseif($_SESSION['usuario_acesso'] != 2)
+        elseif(!($_SESSION['usuario_acesso'] == 2 || $_SESSION['usuario_acesso'] == 3))
         {
             redirect('home');
         }
@@ -122,7 +122,10 @@ class Visita extends CI_Controller {
         }
         elseif($_SESSION['usuario_acesso'] != 2)
         {
-            redirect('home');
+            $_SESSION['err'] = "Acesso negado!";
+            $this->session->mark_as_flash('err');
+
+            redirect('visita');
         }
 
         $data['title'] = 'visita';
@@ -187,7 +190,10 @@ class Visita extends CI_Controller {
         }
         elseif($_SESSION['usuario_acesso'] != 2)
         {
-            redirect('home');
+            $_SESSION['err'] = "Acesso negado!";
+            $this->session->mark_as_flash('err');
+
+            redirect('visita');
         }
 
         $data['title'] = 'visita';

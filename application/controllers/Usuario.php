@@ -239,12 +239,16 @@ class Usuario extends CI_Controller {
         $data['title'] = 'Redefinir senha';
         $data['err_form'] = '';
         $data['success'] = '';
+        $nova_senha = 'alterarsenha';
 
-        $senha = $this->encryption->encrypt('motofacil');
+        $senha = $this->encryption->encrypt($nova_senha);
 
         if($this->usuario_model->redefinir_senha($senha, $id))
         {
-            redirect('usuario');
+            $_SESSION['success'] = "Senha redefinida para <b style='color: #000;'>$nova_senha</b>";
+            $this->session->mark_as_flash('success');
+
+            redirect("usuario");
         }
         else
         {
@@ -253,7 +257,7 @@ class Usuario extends CI_Controller {
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/nav.php', $data);
-        $this->load->view('configuracao/alterar_senha.php', $data);
+        $this->load->view('usuario/usuario_editar.php', $data);
         $this->load->view('templates/footer.php', $data);
     }
 

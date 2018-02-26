@@ -61,11 +61,13 @@
             <button class="form-control" type="submit" aria-describedby="nameHelp"><i class="fa fa-search" style="font-size: "></i></button>
           </div>
         </div>
+        <?php if($_SESSION['usuario_acesso'] == 2 || $_SESSION['usuario_acesso'] == 3): ?>
         <div class="col-lg-2 incident_search" style="padding: 0; padding-right: 10px;">
           <div class="form-group">
             <button class="form-control" aria-describedby="nameHelp"><a style="display: block; color: #495057; text-decoration: none;" href="<?php echo base_url(); ?>incidente/pendentes">Pendentes</a></button>
           </div>
         </div>
+      <?php endif; ?>
         <div class="col-lg-2 incident_search" style="padding: 0; padding-right: 10px;">
           <div class="form-group">
             <button class="form-control" type="reset" aria-describedby="nameHelp">Limpar</button>
@@ -93,12 +95,12 @@
               <!--<th>Data abertura</th>-->
             </tr>
           </thead>
+          <tbody>
 
           <?php foreach ($incidente as $row): ?>
 
             <?php $title_str = 'Prioridade = '.$row->prioridade_nome.' | Data = '.$row->incidente_hora_a; ?>
 
-          <tbody>
             <tr title="<?php echo $title_str; ?>">
               <td>
                 <a href="<?php echo base_url(); ?>incidente/visualizar/<?php echo $row->incidente_id; ?>"><i class="fa fa-eye" style="color: gray;"></i></a>&nbsp;
@@ -116,10 +118,9 @@
               <td><?php echo $row->empresa_nome; ?></td>
               <!--<td><?php //echo $row->incidente_hora_a; ?></td>-->
             </tr>
-          </tbody>
-
+            
           <?php endforeach ?>
-
+          </tbody>
         </table>
       </div>
     </div>

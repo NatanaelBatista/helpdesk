@@ -163,11 +163,6 @@ class Incidente_model extends CI_Model {
 		$this->db->join('situacao', 'incidente_situacao = situacao_id');
 		$this->db->join('empresa', 'incidente_empresa = empresa_id');
 
-		if($_SESSION['usuario_acesso'] == 1)
-		{
-			$this->db->where('incidente_usuario', $_SESSION['usuario_id']);
-		}
-
 		$this->db->where('incidente_situacao', 1);
 		$this->db->or_where('incidente_situacao', 2);
 
@@ -187,11 +182,6 @@ class Incidente_model extends CI_Model {
 	 */
 	public function get_num_incidente_p_all()
 	{	
-		if($_SESSION['usuario_acesso'] == 1)
-		{
-			$this->db->where('incidente_usuario', $_SESSION['usuario_id']);
-		}
-
 		$this->db->where('incidente_situacao', 1);
 		$this->db->or_where('incidente_situacao', 2);
 

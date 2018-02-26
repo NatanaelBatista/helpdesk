@@ -1,5 +1,11 @@
 
 <div class="col-lg-12">
+  <?php if(isset($_SESSION['err'])): ?>
+    <div class="alert alert-danger alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <p><?php echo $_SESSION['err']; ?></p>
+    </div>
+  <?php endif; ?>
   <div class="col-12">
     <div class="table-responsive row">
       <table class="table table-hover">
@@ -23,7 +29,7 @@
             </td>
             <td><?php echo $row->visita_id; ?></td>
             <td><?php echo $row->empresa_nome; ?></td>
-            <td><?php echo $row->visita_data; ?></td>
+            <td style="white-space: nowrap;"><?php echo $row->visita_data; ?></td>
             <td><?php echo $row->visita_servico; ?></td>
           </tr>
         </tbody>

@@ -49,6 +49,13 @@
           display: none;
         }';
       }
+      if(!($_SESSION['usuario_acesso'] == 2 || $_SESSION['usuario_acesso'] == 3))
+      {
+        echo '.relatorio
+        {
+          display: none;
+        }';
+      }
 
      ?>
     @media (max-width: 768px) {

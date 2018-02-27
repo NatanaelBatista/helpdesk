@@ -83,6 +83,42 @@
             </li>
           </ul>
         </li>
+
+        <li class="nav-item desenvolvedor" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#desenvolvedor" data-parent="#exampleAccordion">
+            <span class="nav-link-text"><i class="fa fa-file-code-o"></i> Desenvolvedor</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="desenvolvedor">
+            <li>
+              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#acesso"><i class="fa fa-user"></i> Acesso</a>
+              <ul class="sidenav-third-level collapse" id="acesso">
+                <li>
+                  <a href="<?php echo base_url(); ?>modulo">Módulo</a>
+                </li>
+                <li>
+                  <a href="<?php echo base_url(); ?>acao">Ação</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#email"><i class="fa fa-tasks"></i> E-mail</a>
+              <ul class="sidenav-third-level collapse" id="email">
+                <li>
+                  <a href="<?php echo base_url(); ?>categoria">Envio automático</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#sistema"><i class="fa fa-globe"></i> Sistema</a>
+              <ul class="sidenav-third-level collapse" id="sistema">
+                <li>
+                  <a href="<?php echo base_url(); ?>links_uteis/listar">Parâmetros</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+        
         <li class="nav-item relatorio" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#relatorio" data-parent="#exampleAccordion">
             <span class="nav-link-text"><i class="fa">&#xf201;</i> Relatórios</span>

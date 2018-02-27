@@ -14,7 +14,7 @@ class Modulo extends CI_Controller {
 		parent::__construct();
 
 		$this->load->helper('form');
-        $this->load->library(array('form_validation', 'encryption'));
+        $this->load->library(array('form_validation', 'encryption', 'pagination'));
         $this->load->model(array('modulo_model'));
 	}
 
@@ -34,9 +34,48 @@ class Modulo extends CI_Controller {
             redirect('home');
         }
 
-        $data['title'] = 'modulo';
+        $data['title'] = 'Módulo';
         $data['err_form'] = '';
-        $data['modulo'] = $this->modulo_model->get_modulo();
+        //$data['modulo'] = $this->modulo_model->get_modulo();
+
+        $config = array(
+            'per_page' => 8,
+            'uri_segment' => 2,
+            'full_tag_open' => '<ul class="pagination paginacao" style="margin: auto;">',
+            'full_tag_close' => '</ul>',
+            'first_link' => FALSE,
+            'last_link' => FALSE,
+            'first_tag_open' => '<li class="paginate_button page-item page-link">',
+            'first_tag_close' => '</li>',
+            'prev_link' => 'Anterior',
+            'prev_tag_open' => '<li class="paginate_button page-item previous page-link" id="dataTable_previous">',
+            'prev_tag_close' => '</li>',
+            'next_link' => 'Próxima',
+            'next_tag_open' => '<li class="paginate_button page-item next page-link" id="dataTable_next">',
+            'next_tag_close' => '</li>',
+            'last_tag_open' => '<li class="paginate_button page-item page-link">',
+            'last_tag_close' => '</li>',
+            'cur_tag_open' => '<li class="paginate_button page-item active"><a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">',
+            'cur_tag_close' => '</a></li>',
+            'num_tag_open' => '<li class="paginate_button page-item page-link">',
+            'num_tag_close' => '</li>'
+        );
+
+        // url da página na qual será feira a paginação
+        $config['base_url'] = base_url() . "modulo";
+
+        // total de linhas retornadas na consulta ao database
+        $config['total_rows'] = $this->modulo_model->get_num_modulo_all();
+
+        $this->pagination->initialize($config);
+
+        // cria os links da paginação
+        $data['pagination'] = $this->pagination->create_links();
+
+        // seguimentos após o endereço principal
+        $offset = ($this->uri->segment(2) ? $this->uri->segment(2) : 0);
+
+        $data['modulo'] = $this->modulo_model->get_modulo_all('desc', $config['per_page'], $offset);
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/nav.php', $data);
@@ -60,7 +99,7 @@ class Modulo extends CI_Controller {
             redirect('home');
         }
 
-        $data['title'] = 'modulo';
+        $data['title'] = 'Módulo - inserir';
         $data['err_form'] = '';
 
         $config_form_validation = array(
@@ -72,7 +111,7 @@ class Modulo extends CI_Controller {
             array(
                 'field' => 'modulo_tabela',
                 'label' => 'Tabela',
-                'rules' => 'trim|stripslashes|htmlspecialchars|encode_php_tags|required|min_length[3]|max_length[45]|is_unique[modulo.modulo_tabela]'
+                'rules' => 'trim|stripslashes|htmlspecialchars|encode_php_tags|min_length[3]|max_length[45]|is_unique[modulo.modulo_tabela]'
             ),
             array(
                 'field' => 'modulo_descricao',
@@ -124,7 +163,7 @@ class Modulo extends CI_Controller {
             redirect('home');
         }
 
-        $data['title'] = 'modulo';
+        $data['title'] = 'Módulo - editar';
         $data['err_form'] = '';
         $data['modulo'] = $this->modulo_model->get_modulo($id);
 
@@ -137,7 +176,7 @@ class Modulo extends CI_Controller {
             array(
                 'field' => 'modulo_tabela',
                 'label' => 'Tabela',
-                'rules' => "trim|stripslashes|htmlspecialchars|encode_php_tags|required|min_length[3]|max_length[45]|callback_check_exists[$id]"
+                'rules' => "trim|stripslashes|htmlspecialchars|encode_php_tags|min_length[3]|max_length[45]|callback_check_exists[$id]"
             ),
             array(
                 'field' => 'modulo_descricao',

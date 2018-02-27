@@ -7,3 +7,4 @@ $route['translate_uri_dashes'] = FALSE;
 $route['incidente/:num'] = 'incidente';
 $route['pessoa/:num'] = 'pessoa';
 $route['usuario/:num'] = 'usuario';
+$route['modulo/:num'] = 'modulo';

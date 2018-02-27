@@ -47,6 +47,7 @@ class Modulo_model extends CI_Model {
 	{
 		$dados = array(
 			'modulo_nome' => $dados['modulo_nome'],
+			'modulo_tabela' => $dados['modulo_tabela'],
 			'modulo_descricao' => $dados['modulo_descricao']
 		);
 
@@ -81,6 +82,7 @@ class Modulo_model extends CI_Model {
 	{
 		$dados = array(
 			'modulo_nome' => $dados['modulo_nome'],
+			'modulo_tabela' => $dados['modulo_tabela'],
 			'modulo_descricao' => $dados['modulo_descricao']
 		);
 
@@ -103,6 +105,38 @@ class Modulo_model extends CI_Model {
 		{
 			return FALSE;
 		}
+	}
+
+	/**
+	 * get_modulo_all
+	 *
+	 * @access public
+	 * @param string $order
+	 * @param int $limit
+	 * @param int $offset
+	 * @return object
+	 */
+	public function get_modulo_all($order, $limit, $offset)
+	{
+		$this->db->limit($limit, $offset);
+		$this->db->order_by('modulo_nome', $order);
+		
+		$query = $this->db->get('modulo');
+
+		return $query->result();
+	}
+
+	/**
+	 * set_num_modulo_all
+	 *
+	 * @access public
+	 * @return int
+	 */
+	public function get_num_modulo_all()
+	{	
+		$query = $this->db->get('modulo');
+
+		return $query->num_rows();
 	}
 
 	/**

@@ -11,6 +11,7 @@
             <th>Ativo</th>
             <th>ID</th>
             <th>Nome</th>
+            <th>Tabela</th>
             <th>Descrição</th>
           </tr>
         </thead>
@@ -25,6 +26,7 @@
             <td><input type="checkbox" disabled="" <?php if($row->modulo_ativo == 1){ echo 'checked'; } ?>></td>
             <td><?php echo $row->modulo_id; ?></td>
             <td><?php echo $row->modulo_nome; ?></td>
+            <td><?php echo $row->modulo_tabela; ?></td>
             <td><?php echo $row->modulo_descricao; ?></td>
           </tr>
         </tbody>
@@ -35,3 +37,11 @@
     </div>
   </div>
 </div>
+
+<hr />
+<div class="col-sm-12 col-md-4" style="margin: auto;">
+  <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+    <?php echo $pagination; ?>
+  </div>
+</div>
+<br />

@@ -22,6 +22,8 @@ class Modulo_model extends CI_Model {
 	 */
 	public function get_modulo($id = NULL)
 	{
+		$this->db->join('grupo_modulo', 'modulo_grupo = grupo_modulo_id');
+
 		if($id == NULL)
 		{
 			$query = $this->db->get('modulo');
@@ -47,6 +49,7 @@ class Modulo_model extends CI_Model {
 	{
 		$dados = array(
 			'modulo_nome' => $dados['modulo_nome'],
+			'modulo_grupo' => $dados['modulo_grupo'],
 			'modulo_tabela' => $dados['modulo_tabela'],
 			'modulo_descricao' => $dados['modulo_descricao']
 		);
@@ -82,6 +85,7 @@ class Modulo_model extends CI_Model {
 	{
 		$dados = array(
 			'modulo_nome' => $dados['modulo_nome'],
+			'modulo_grupo' => $dados['modulo_grupo'],
 			'modulo_tabela' => $dados['modulo_tabela'],
 			'modulo_descricao' => $dados['modulo_descricao']
 		);
@@ -118,6 +122,8 @@ class Modulo_model extends CI_Model {
 	 */
 	public function get_modulo_all($order, $limit, $offset)
 	{
+		$this->db->join('grupo_modulo', 'modulo_grupo = grupo_modulo_id');
+
 		$this->db->limit($limit, $offset);
 		$this->db->order_by('modulo_nome', $order);
 		

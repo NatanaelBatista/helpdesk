@@ -2,12 +2,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 /**
- * Modulo
+ * Grupo_modulo
  *
  * @package helpdesk
  * @since 0.1
  */
-class Modulo extends CI_Controller {
+class Grupo_modulo extends CI_Controller {
 
 	public function __construct()
 	{
@@ -15,7 +15,7 @@ class Modulo extends CI_Controller {
 
 		$this->load->helper('form');
         $this->load->library(array('form_validation', 'encryption', 'pagination'));
-        $this->load->model(array('modulo_model', 'grupo_modulo_model'));
+        $this->load->model(array('grupo_modulo_model'));
 	}
 
     /**
@@ -36,7 +36,7 @@ class Modulo extends CI_Controller {
 
         $data['title'] = 'Módulo';
         $data['err_form'] = '';
-        //$data['modulo'] = $this->modulo_model->get_modulo();
+        //$data['grupo_modulo'] = $this->grupo_modulo_model->get_grupo_modulo();
 
         $config = array(
             'per_page' => 8,
@@ -62,10 +62,10 @@ class Modulo extends CI_Controller {
         );
 
         // url da página na qual será feira a paginação
-        $config['base_url'] = base_url() . "modulo";
+        $config['base_url'] = base_url() . "grupo_modulo";
 
         // total de linhas retornadas na consulta ao database
-        $config['total_rows'] = $this->modulo_model->get_num_modulo_all();
+        $config['total_rows'] = $this->grupo_modulo_model->get_num_grupo_modulo_all();
 
         $this->pagination->initialize($config);
 
@@ -75,11 +75,11 @@ class Modulo extends CI_Controller {
         // seguimentos após o endereço principal
         $offset = ($this->uri->segment(2) ? $this->uri->segment(2) : 0);
 
-        $data['modulo'] = $this->modulo_model->get_modulo_all('desc', $config['per_page'], $offset);
+        $data['grupo_modulo'] = $this->grupo_modulo_model->get_grupo_modulo_all('desc', $config['per_page'], $offset);
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/nav.php', $data);
-        $this->load->view('modulo/modulo.php', $data);
+        $this->load->view('grupo_modulo/grupo_modulo.php', $data);
         $this->load->view('templates/footer.php', $data);
     }
 
@@ -101,26 +101,15 @@ class Modulo extends CI_Controller {
 
         $data['title'] = 'Módulo - inserir';
         $data['err_form'] = '';
-        $data['grupo_modulo'] = $this->grupo_modulo_model->get_grupo_modulo();
 
         $config_form_validation = array(
             array(
-                'field' => 'modulo_nome',
+                'field' => 'grupo_modulo_nome',
                 'label' => 'Nome',
-                'rules' => 'trim|stripslashes|htmlspecialchars|encode_php_tags|required|min_length[3]|max_length[45]|is_unique[modulo.modulo_nome]'
+                'rules' => 'trim|stripslashes|htmlspecialchars|encode_php_tags|required|min_length[3]|max_length[45]|is_unique[grupo_modulo.grupo_modulo_nome]'
             ),
             array(
-                'field' => 'modulo_grupo',
-                'label' => 'Grupo',
-                'rules' => 'trim|stripslashes|htmlspecialchars|encode_php_tags|required'
-            ),
-            array(
-                'field' => 'modulo_tabela',
-                'label' => 'Tabela',
-                'rules' => 'trim|stripslashes|htmlspecialchars|encode_php_tags|min_length[3]|max_length[45]|is_unique[modulo.modulo_tabela]'
-            ),
-            array(
-                'field' => 'modulo_descricao',
+                'field' => 'grupo_modulo_descricao',
                 'label' => 'Descrição',
                 'rules' => 'trim|stripslashes|htmlspecialchars|encode_php_tags|min_length[3]|max_length[250]'
             )
@@ -132,9 +121,9 @@ class Modulo extends CI_Controller {
 
             if($this->form_validation->run())
             {
-                if($last_id = $this->modulo_model->set_modulo($_POST))
+                if($last_id = $this->grupo_modulo_model->set_grupo_modulo($_POST))
                 {
-                    redirect('modulo');
+                    redirect('grupo_modulo');
                 }
                 else
                 {
@@ -149,7 +138,7 @@ class Modulo extends CI_Controller {
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/nav.php', $data);
-        $this->load->view('modulo/modulo_inserir.php', $data);
+        $this->load->view('grupo_modulo/grupo_modulo_inserir.php', $data);
         $this->load->view('templates/footer.php', $data);
     }
 
@@ -171,27 +160,16 @@ class Modulo extends CI_Controller {
 
         $data['title'] = 'Módulo - editar';
         $data['err_form'] = '';
-        $data['modulo'] = $this->modulo_model->get_modulo($id);
-        $data['grupo_modulo'] = $this->grupo_modulo_model->get_grupo_modulo();
+        $data['grupo_modulo'] = $this->grupo_modulo_model->get_grupo_modulo($id);
 
         $config_form_validation = array(
             array(
-                'field' => 'modulo_nome',
+                'field' => 'grupo_modulo_nome',
                 'label' => 'Nome',
                 'rules' => "trim|stripslashes|htmlspecialchars|encode_php_tags|required|min_length[3]|max_length[45]|callback_check_exists[$id]"
             ),
             array(
-                'field' => 'modulo_grupo',
-                'label' => 'Grupo',
-                'rules' => "trim|stripslashes|htmlspecialchars|encode_php_tags|required"
-            ),
-            array(
-                'field' => 'modulo_tabela',
-                'label' => 'Tabela',
-                'rules' => "trim|stripslashes|htmlspecialchars|encode_php_tags|min_length[3]|max_length[45]|callback_check_exists[$id]"
-            ),
-            array(
-                'field' => 'modulo_descricao',
+                'field' => 'grupo_modulo_descricao',
                 'label' => 'Descrição',
                 'rules' => 'trim|stripslashes|htmlspecialchars|encode_php_tags|min_length[3]|max_length[250]'
             )
@@ -203,9 +181,9 @@ class Modulo extends CI_Controller {
 
             if($this->form_validation->run())
             {
-                if($last_id = $this->modulo_model->update_modulo($_POST, $id))
+                if($last_id = $this->grupo_modulo_model->update_grupo_modulo($_POST, $id))
                 {
-                    redirect('modulo');
+                    redirect('grupo_modulo');
                 }
                 else
                 {
@@ -220,7 +198,7 @@ class Modulo extends CI_Controller {
 
         $this->load->view('templates/header.php', $data);
         $this->load->view('templates/nav.php', $data);
-        $this->load->view('modulo/modulo_editar.php', $data);
+        $this->load->view('grupo_modulo/grupo_modulo_editar.php', $data);
         $this->load->view('templates/footer.php', $data);
     }
 
@@ -245,7 +223,7 @@ class Modulo extends CI_Controller {
             redirect('home');
         }
 
-        if(!$this->modulo_model->get_modulo_nome_exists($param_1, $id) == 0)
+        if(!$this->grupo_modulo_model->get_grupo_modulo_nome_exists($param_1, $id) == 0)
         {
             $this->form_validation->set_message('check_exists', 'Já existe um(a) {field} com esse valor');
             

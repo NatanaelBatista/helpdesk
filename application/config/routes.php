@@ -8,3 +8,4 @@ $route['incidente/:num'] = 'incidente';
 $route['pessoa/:num'] = 'pessoa';
 $route['usuario/:num'] = 'usuario';
 $route['modulo/:num'] = 'modulo';
+$route['grupo_modulo/:num'] = 'grupo_modulo';

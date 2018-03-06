@@ -93,6 +93,9 @@
               <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#acesso"><i class="fa fa-user"></i> Acesso</a>
               <ul class="sidenav-third-level collapse" id="acesso">
                 <li>
+                  <a href="<?php echo base_url(); ?>grupo_modulo">Grupo de Módulo</a>
+                </li>
+                <li>
                   <a href="<?php echo base_url(); ?>modulo">Módulo</a>
                 </li>
                 <li>
@@ -109,7 +112,7 @@
               </ul>
             </li>
             <li>
-              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#sistema"><i class="fa fa-globe"></i> Sistema</a>
+              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#sistema"><i class="fa fa-sitemap"></i> Sistema</a>
               <ul class="sidenav-third-level collapse" id="sistema">
                 <li>
                   <a href="<?php echo base_url(); ?>links_uteis/listar">Parâmetros</a>
@@ -217,7 +220,7 @@
             <a class="dropdown-item" href="#">
               <span class="text-success">
                 <strong>
-                  <i class="fa fa-long-arrow-up fa-fw"></i>Status Update</strong>
+                  <i class="fa fa-long-arrow-up fa-fw"></i>Incidente</strong>
               </span>
               <span class="small float-right text-muted">11:21 AM</span>
               <div class="dropdown-message small">This is an automated server response message. All systems are online.</div>

@@ -19,8 +19,14 @@
                 <input class="form-control" name="modulo_nome" id="modulo_nome" type="text" aria-describedby="nameHelp" placeholder="Insira o nome" value="<?php echo $row->modulo_nome; ?>">
               </div>
               <div class="col-md-6">
-                <label for="modulo_tabela">Tabela</label>
-                <input class="form-control" name="modulo_tabela" id="modulo_tabela" type="text" aria-describedby="nameHelp" placeholder="Insira o tabela" value="<?php echo $row->modulo_tabela; ?>">
+                <label for="modulo_grupo">grupo_modulo</label>
+                <select class="form-control" id="modulo_grupo" name="modulo_grupo">
+                  <?php foreach ($grupo_modulo as $row_grupo_modulo): ?>
+                  <option value="<?php echo $row_grupo_modulo->grupo_modulo_id; ?>"
+                  <?php if($row->modulo_grupo == $row_grupo_modulo->grupo_modulo_id){echo 'selected';} ?>>
+                  <font><?php echo $row_grupo_modulo->grupo_modulo_nome; ?></font></option>
+                  <?php endforeach; ?>
+                </select>
               </div>
             </div>
           </div>

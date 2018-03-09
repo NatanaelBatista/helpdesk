@@ -132,6 +132,23 @@
                 <span class="nav-link-text"> Visitas a Filiais</span>
               </a>
             </li>
+            <li>
+              <a href="<?php echo base_url(); ?>recarga">
+                <span class="nav-link-text"> Recarga de Impressora</span>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item gestao" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+          <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#gestao" data-parent="#exampleAccordion">
+            <span class="nav-link-text"><i class="fa fa-pie-chart"></i> Gestão</span>
+          </a>
+          <ul class="sidenav-second-level collapse" id="gestao">
+            <li>
+              <a href="<?php echo base_url(); ?>impressora">
+                <span class="nav-link-text"> Impressoras</span>
+              </a>
+            </li>
           </ul>
         </li>
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">

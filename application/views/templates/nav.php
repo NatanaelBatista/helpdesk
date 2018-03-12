@@ -13,11 +13,15 @@
             <span class="nav-link-text" style="font-size: 10pt;"><?php echo $_SESSION['usuario_email']; ?></span>
           </a>
         </li>
+
+        <!-- Incidente -->
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="<?php echo base_url(); ?>incidente">
             <span class="nav-link-text"><i class="fa fa-tasks"></i> Incidentes</span>
           </a>
         </li>
+        
+        <!-- Gerencial -->
         <li class="nav-item gerencial" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
             <span class="nav-link-text"><i class="fa fa-cogs"></i> Gerencial</span>
@@ -84,6 +88,7 @@
           </ul>
         </li>
 
+        <!-- Desenvolvedor -->
         <li class="nav-item desenvolvedor" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#desenvolvedor" data-parent="#exampleAccordion">
             <span class="nav-link-text"><i class="fa fa-file-code-o"></i> Desenvolvedor</span>
@@ -122,6 +127,7 @@
           </ul>
         </li>
         
+        <!-- Relatórios -->
         <li class="nav-item relatorio" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#relatorio" data-parent="#exampleAccordion">
             <span class="nav-link-text"><i class="fa">&#xf201;</i> Relatórios</span>
@@ -139,18 +145,31 @@
             </li>
           </ul>
         </li>
-        <li class="nav-item gestao" data-toggle="tooltip" data-placement="right" title="Menu Levels">
+
+        <!-- Gestão -->
+        <li class="nav-item desenvolvedor" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#gestao" data-parent="#exampleAccordion">
             <span class="nav-link-text"><i class="fa fa-pie-chart"></i> Gestão</span>
           </a>
           <ul class="sidenav-second-level collapse" id="gestao">
             <li>
-              <a href="<?php echo base_url(); ?>impressora">
-                <span class="nav-link-text"> Impressoras</span>
-              </a>
+              <a class="nav-link-collapse collapsed" data-toggle="collapse" href="#equipamentos"> Equipamentos</a>
+              <ul class="sidenav-third-level collapse" id="equipamentos">
+                <li>
+                  <a href="<?php echo base_url(); ?>item">Itens</a>
+                </li>
+                <li>
+                  <a href="<?php echo base_url(); ?>tipo_item">Tipo de item</a>
+                </li>
+                <li>
+                  <a href="<?php echo base_url(); ?>impressora">Impressoras</a>
+                </li>
+              </ul>
             </li>
           </ul>
         </li>
+
+        <!-- Configurações -->
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
           <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#configuracao" data-parent="#exampleAccordion">
             <span class="nav-link-text"><i class="fa fa-cog"></i> Configurações</span>
@@ -163,16 +182,22 @@
             </li>
           </ul>
         </li>
+
+        <!-- Perguntas Frequentes -->
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="<?php echo base_url(); ?>perguntas_frequentes">
             <span class="nav-link-text"><i class="fa fa-wpforms"></i> Perguntas frequentes</span>
           </a>
         </li>
+
+        <!-- Links úteis -->
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="<?php echo base_url(); ?>links_uteis">
             <span class="nav-link-text"><i class="fa fa-external-link"></i> Links úteis</span>
           </a>
         </li>
+
+        <!-- Downloads -->
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="<?php echo base_url(); ?>download">
             <span class="nav-link-text"><i class="fa fa-cloud-download"></i> Downloads</span>
